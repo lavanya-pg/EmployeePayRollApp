@@ -34,7 +34,7 @@ function createEmployeePayroll()
     employeepayrollData.salary = getInputValueById('#salary');
     employeepayrollData.note = getInputValueById('#notes');
     let date = getInputValueById('#year') + "-"+ getInputValueById('#month') + "/" + getInputValueById('#day');
-    employeepayrollData.startDate = new Date(date);
+    employeepayrollData.startDate = new Date(date).getDate();
     empPayroll.push(employeepayrollData)
     alert("Your entry is successfully done");
     alert(empPayroll);
