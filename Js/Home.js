@@ -10,7 +10,10 @@ const getEmployeePayrollDataFromStorage = () => {
 }
 const createInnerHtml = () => {
     const headerHtml = "<tr><th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th></tr>"
-    if (employeePayrollList.length == 0) return;
+    if (employeePayrollList.length == 0){
+        document.querySelector('#display').innerHTML = '';
+        return;
+    }
     let innerHtml = `${headerHtml}`;
     for (const employeePayrollData of employeePayrollList) {
         innerHtml = `${innerHtml}
@@ -35,8 +38,8 @@ const createEmployeePayrollJSON = () => {
             _id: new Date().getTime(),
             _name: "Lavanya",
             _salary: "$ 100000",
-            _gender: "female",
-            _department: ["Engineering", "HR"],
+            _gender: "Female",
+            _department: ["Engineering", "Hr"],
             _notes: "Excellent Employee",
             _profile: "../assets/profile-images/Ellipse -1.png",
             _startDate: "18/09/2020, 12:00:00 AM"
