@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     employeePayrollList = getEmployeePayrollDataFromStorage();
     document.querySelector(".emp-count").textContent = employeePayrollList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp')
 });
 const getEmployeePayrollDataFromStorage = () => {
     return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
@@ -34,8 +35,8 @@ const createEmployeePayrollJSON = () => {
             _id: new Date().getTime(),
             _name: "Lavanya",
             _salary: "$ 100000",
-            _gender: "Female",
-            _department: ["Engineering"],
+            _gender: "female",
+            _department: ["Engineering", "HR"],
             _notes: "Excellent Employee",
             _profile: "../assets/profile-images/Ellipse -1.png",
             _startDate: "18/09/2020, 12:00:00 AM"
@@ -60,7 +61,7 @@ const getDeptHtml = (deptList) => {
     }
     return deptHtml;
 }
-function remove(node){
+remove = function(node){
     let empPayrollData = employeePayrollList.find(empData => empData._id == node.id);
     if (!empPayrollData) return;
     const index = employeePayrollList
@@ -69,6 +70,12 @@ function remove(node){
     employeePayrollList.splice(index, 1);
     localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
     document.querySelector('.emp-count').textContent = employeePayrollList.length;
-    alert("User deleted is : "+empPayrollData._name+"with id :"+empPayrollData._id);
+    alert("User deleted is : "+empPayrollData._name+" with id :"+empPayrollData._id);
     createInnerHtml();
 }
+update = function(node){
+    let empData = employeePayrollList.find((emp) => emp._id == node.id);
+    if (!empData) return;
+    localStorage.setItem("editEmp", JSON.stringify(empData));
+    window.location.replace(siteproperties.employee_payroll_page);
+}; 
