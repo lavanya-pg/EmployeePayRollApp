@@ -21,8 +21,8 @@ const createInnerHtml = () => {
             <td>${employeePayrollData._salary}</td>
             <td>${employeePayrollData._startDate}</td>
             <td>
-                <img id="${employeePayrollData._id}" onclick="remove(this)" alt="delete" src="C:\Users\Lavanya\Desktop\EmployeePayrollPay\Asserts\Icons\delete-black-18dp.svg">
-                <img id="${employeePayrollData._id}" alt="edit" onclick="update(this)" src="C:\Users\Lavanya\Desktop\EmployeePayrollPay\Asserts\Icons\create-black-18dp.svg">
+                <img id="${employeePayrollData._id}" onclick="remove(this)" alt="delete" src="file:///C:/Users/Lavanya/Desktop/EmployeePayrollPay/Asserts/Icons/download%20(1)%20(1).png">
+                <img id="${employeePayrollData._id}" alt="edit" onclick="update(this)" src="file:///C:/Users/Lavanya/Desktop/EmployeePayrollPay/Asserts/Icons/download%20(2).png">
             </td>
         </tr>
         `;
@@ -34,21 +34,21 @@ const createEmployeePayrollJSON = () => {
             _id: new Date().getTime(),
             _name: "Lavanya",
             _salary: "$ 100000",
-            _gender: "female",
+            _gender: "Female",
             _department: ["Engineering"],
-            _notes: "Nice",
-            _profile: "C:\Users\Lavanya\Desktop\EmployeePayrollPay\Asserts\Profile-Images\Ellipse -1.png",
+            _notes: "Excellent Employee",
+            _profile: "../assets/profile-images/Ellipse -1.png",
             _startDate: "18/09/2020, 12:00:00 AM"
         },
         {
             _id: new Date().getTime() + 1,
-            _name: "Sandhiya",
+            _name: "Akhil",
             _salary: "$ 70000",
-            _gender: "female",
+            _gender: "male",
             _department: ["Engineering", "Sales"],
-            _notes: "null",
-            _profile: "C:\Users\Lavanya\Desktop\EmployeePayrollPay\Asserts\Profile-Images\Ellipse -7.png",
-            _startDate: "8/12/2019, 12:00:00 AM"
+            _notes: null,
+            _profile: "../assets/profile-images/Ellipse -8.png",
+            _startDate: "18/09/2020, 12:00:00 AM"
         }
     ];
     return employeePayrollListLocal;
